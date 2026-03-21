@@ -1,0 +1,3 @@
+[submodule "yolo_elephant_detection/yolov5"]
+	path = yolo_elephant_detection/yolov5
+	url = https://github.com

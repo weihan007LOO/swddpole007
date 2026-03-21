@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588414711624",
+    "project_id": "wildguardsentinel-b3c9c",
+    "storage_bucket": "wildguardsentinel-b3c9c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588414711624:android:457223444398c03d92657d",
+        "android_client_info": {
+          "package_name": "com.example.wildguard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa3YHKn6z5WxPL0aJV5GAxy_Jn57mAWy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
