@@ -30,6 +30,8 @@ SWDDPole/
 - Firebase Admin SDK
 - Raspberry Pi (or computer for testing)
 
+---
+
 ### Installation
 
 1. **Clone the repository:**
@@ -42,16 +44,55 @@ cd SWDDPole
 ```bash
 pip install -r requirements.txt
 ```
-(Create a requirements.txt file with the following Python dependencies: torch, opencv-python, ultralytics, firebase-admin, gpiozero.)
+(Create a `requirements.txt` file with the following Python dependencies: `torch`, `opencv-python`, `ultralytics`, `firebase-admin`, `gpiozero`.)
 
 3. **Place Firebase Credentials Safely:**
 
-(Copy your Firebase service account JSON file to the root of the project, e.g., wildguardsentinel.json.)
+(Copy your Firebase service account JSON file to the root of the project, e.g., `wildguardsentinel.json`.)
 
-⚠️ Important: Do not commit this file to GitHub.
+>⚠️ Important: Do not commit this file to GitHub.
 
 4. **Run the Detection Script:**
 ```bash
 python shell.py
 ```
+* The system will wait for motion via the PIR sensor.
+* It will use the day or night YOLO model depending on the light sensor reading.
+* Detected elephants are counted and sent to Firestore in real time.
 
+---
+
+## Security & Secrets
+
+* `wildguardsentinel.json` contains your Firebase credentials. Never commit this file to GitHub.
+* Add it to your `.gitignore`:
+
+```bash
+# Firebase credentials
+wildguardsentinel.json
+```
+
+* API keys in `firebase_options.dart` (if using Flutter frontend) are not secret, but sensitive credentials like service accounts must be kept private.
+
+---
+
+## Notes
+
+* YOLOv8 model is used for **daytime** detection.
+* YOLOv5 model is used for **nighttime** detection.
+* GPIO simulation is available on laptops if `gpiozero` is not installed.
+* The script overlays the model type and elephant count on the camera feed.
+
+---
+
+## References
+
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+- [YOLOv5](https://github.com/ultralytics/yolov5)  
+- [Firebase Admin SDK for Python](https://firebase.google.com/docs/admin/setup)  
+- [gpiozero Documentation](https://gpiozero.readthedocs.io/en/stable/)
+
+---
+
+## License
+MIT License (or your chosen license)
